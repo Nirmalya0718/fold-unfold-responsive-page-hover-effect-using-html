@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS-portfilio</title>
+</head>
+<body>
+    <div class="box">
+        <span style="--i:0;"></span>
+        <span style="--i:1;"></span>
+        <span style="--i:2;"></span>
+        <span style="--i:3;"></span>
+    </div>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body
+    {
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: #2f364f;
+    }
+    .box{
+        width: 320px;
+        height: 180px;
+        transform: rotate(-25deg) skew(25deg);
+        transition: 0.5s;
+        display: flex;
+    }    
+    .box:hover{
+        transform: rotate(-25deg) skew(-25deg) translateY(-20px);
+    }
+    .box span{
+        width: 25%;
+        height: 100%;
+        background: url(./image-160x80.jpg);
+        background-size: cover;
+        background-position: calc(-80px*var(--i));
+        display:block;
+        transition: 0.5s;
+        pointer-events: none;
+    }
+    .box:hover span:nth-child(odd){
+        transform: skewY(25deg);
+        box-shadow: inset 20px 0 50px rgba(0, 0, 0, 0.5);
+    }
+    .box:hover span:nth-child(even){
+        transform: skewY(-25deg);
+        box-shadow: inset 20px 0 50px rgba(0, 0, 0, 0.5);
+
+    }
+    </style>
+</body>
+</html>
